@@ -1,2 +1,2 @@
 require "zoneEditor"
-zoneEditor.addZoneType("CleanWater")
+zoneEditor.addZoneType("CleanWaterZoneType")
