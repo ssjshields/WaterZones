@@ -3,7 +3,8 @@ require "ISUI/ISWorldObjectContextMenu"
 require "zoneEditor"
 local function checkCleanWaterZones(x,y)
     if zoneEditor then
-        for i, zone in pairs(zoneEditor.zones) do
+        local cleanWaterZones = ModData.request("CleanWaterZoneType_zones")
+        for i, zone in pairs(cleanWaterZones) do
             if zone.coordinates and x >= zone.coordinates.x1 and x<=zone.coordinates.x2 and y>=zone.coordinates.y1 and y<=zone.coordinates.y2 then
                 return true
             end
