@@ -16,7 +16,16 @@ local function checkCleanWaterZones(x,y)
 end
 
 
+local function addTooltipToOption(option)
+    local tooltip = ISWorldObjectContextMenu.addToolTip()
+    local text = " <RGB:1,0.5,0.5> " .. getText("Tooltip_item_TaintedWater")
+    tooltip.description = text
+    option.toolTip = tooltip
+end
+
+
 ---@param waterObject IsoObject
+---@param context ISContextMenu
 local function isNaturalWaterRemoveOptions(waterObject, context)
     if not waterObject or not context then return end
     
@@ -25,8 +34,23 @@ local function isNaturalWaterRemoveOptions(waterObject, context)
     local bStringStartWater = luautils.stringStarts(waterObject:getSprite():getName(), 'blends_natural_02')
     
     if not isInventoryObject and bHasProperties and bStringStartWater and (not checkCleanWaterZones(waterObject:getX(),waterObject:getY())) then
-        context:removeOptionByName(getText("ContextMenu_Drink"))
-        context:removeOptionByName(getText("ContextMenu_Fill"))
+
+        --context:removeOptionByName(getText("ContextMenu_Drink"))
+        local drinkOption = context:getOptionFromName(getText("ContextMenu_Drink"))
+        if drinkOption then
+            drinkOption.notAvailable = true
+            addTooltipToOption(drinkOption)
+        end
+
+        --context:removeOptionByName(getText("ContextMenu_Fill"))
+        ---@type ISContextMenu
+        local fillOption = context:getOptionFromName(getText("ContextMenu_Fill"))
+        if fillOption then
+            fillOption.notAvailable = true
+            fillOption.subOption = nil
+            addTooltipToOption(fillOption)
+        end
+
     end
 end
 
