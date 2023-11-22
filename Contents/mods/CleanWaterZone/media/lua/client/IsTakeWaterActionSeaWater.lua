@@ -1,9 +1,9 @@
 require "ISUI/ISWorldObjectContextMenu"
 
-
+require "zoneEditor"
 local function checkCleanWaterZones(x,y)
 
-    local cleanWaterZones = ModData.request("CleanWaterZoneType_zones")
+    local cleanWaterZones = zoneEditor.requestZone("CleanWaterZoneType_zones")
     if not cleanWaterZones then return false end
 
     for i, zone in pairs(cleanWaterZones) do

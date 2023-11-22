@@ -2,3 +2,4 @@ name=CleanWater
 id=CleanWater
 description=
 poster=poster.png
+require=ZoneAPIChucked
