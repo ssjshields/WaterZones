@@ -1,17 +1,20 @@
 require "ISUI/ISWorldObjectContextMenu"
 
-require "zoneEditor"
+
 local function checkCleanWaterZones(x,y)
-    if zoneEditor then
-        local cleanWaterZones = ModData.request("CleanWaterZoneType_zones")
-        for i, zone in pairs(cleanWaterZones) do
-            if zone.coordinates and x >= zone.coordinates.x1 and x<=zone.coordinates.x2 and y>=zone.coordinates.y1 and y<=zone.coordinates.y2 then
-                return true
-            end
+
+    local cleanWaterZones = ModData.request("CleanWaterZoneType_zones")
+    if not cleanWaterZones then return false end
+
+    for i, zone in pairs(cleanWaterZones) do
+        if zone.coordinates and x >= zone.coordinates.x1 and x<=zone.coordinates.x2 and y>=zone.coordinates.y1 and y<=zone.coordinates.y2 then
+            return true
         end
     end
+
     return false
 end
+
 
 ---@param waterObject IsoObject
 local function isNaturalWaterRemoveOptions(waterObject, context)
@@ -27,11 +30,13 @@ local function isNaturalWaterRemoveOptions(waterObject, context)
     end
 end
 
+
 local original_ISWorldObjectContextMenu_doFillWaterMenu = ISWorldObjectContextMenu.doFillWaterMenu
 function ISWorldObjectContextMenu.doFillWaterMenu(source, playerNum, context)
     original_ISWorldObjectContextMenu_doFillWaterMenu(source, playerNum, context)
     isNaturalWaterRemoveOptions(source, context)
 end
+
 
 local original_ISWorldObjectContextMenu_doDrinkWaterMenu = ISWorldObjectContextMenu.doDrinkWaterMenu
 function ISWorldObjectContextMenu.doDrinkWaterMenu(source, playerNum, context)
