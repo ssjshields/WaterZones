@@ -18,7 +18,7 @@ end
 
 local function addTooltipToOption(option)
     local tooltip = ISWorldObjectContextMenu.addToolTip()
-    local text = " <RGB:1,0.5,0.5> " .. getText("Tooltip_item_TaintedWater")
+    local text = " <RGB:1,0.5,0.5> " .. getText("Tooltip_CleanWaterZoneBLOCK")
     tooltip.description = text
     option.toolTip = tooltip
 end
