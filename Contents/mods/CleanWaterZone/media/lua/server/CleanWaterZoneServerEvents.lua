@@ -1,2 +1,2 @@
-local cleanWaterZoneDefault = require "cleanWaterZoneDefault"
-Events.OnInitGlobalModData.Add(cleanWaterZoneDefault.init)
+local CleanWaterZoneDefaults = require "CleanWaterZoneDefaults"
+Events.OnInitGlobalModData.Add(CleanWaterZoneDefaults.init)
