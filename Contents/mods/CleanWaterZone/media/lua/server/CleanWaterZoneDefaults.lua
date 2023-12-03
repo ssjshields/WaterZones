@@ -1,6 +1,6 @@
 local CleanWaterZoneDefaults = {}
 
-local cleanWater = require('CleanWaterZoneType')
+local cleanWater = require 'CleanWaterZoneType'
 
 function CleanWaterZoneDefaults.addZone(x1, y1, x2, y2, zonesList)
     local newZone = copyTable(cleanWater.Zone)
@@ -17,7 +17,6 @@ function CleanWaterZoneDefaults.init(isNewGame)
     ---ADD MORE DEFAULTS HERE
     CleanWaterZoneDefaults.addZone(30405, 30781, 30419, 30834, cleanWaterZones)
 
-    ModData.transmit("CleanWaterZoneType_zones")
 end
 
 return CleanWaterZoneDefaults
