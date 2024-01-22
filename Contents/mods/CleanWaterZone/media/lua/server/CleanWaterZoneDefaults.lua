@@ -36,6 +36,8 @@ function CleanWaterZoneDefaults.init(isNewGame)
         CleanWaterZoneDefaults.addZone("Q", 9846, 4060, 9913, 4109, cleanWaterZones)
         CleanWaterZoneDefaults.addZone("R", 10209, 4602, 10247, 4629, cleanWaterZones)
         CleanWaterZoneDefaults.addZone("S", 10440, 3962, 10492, 3992, cleanWaterZones)
+		CleanWaterZoneDefaults.addZone("T", 4858, 3782, 4906, 3806, cleanWaterZones)
+        CleanWaterZoneDefaults.addZone("U", 4922, 3796, 5009, 3867, cleanWaterZones)
     end
     
 end
